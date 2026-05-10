@@ -1,4 +1,6 @@
 ---
+// 14 unique testimonials, deduplicated from the source list (Ananya S. and Ritika M. were repeated).
+// Order: gut/digestion stories first, then weight, then sports, then global/abroad.
 const testimonials = [
   {
     quote:
@@ -6,33 +8,241 @@ const testimonials = [
     name: "Kavya N.",
     location: "Singapore",
   },
+  {
+    quote:
+      "I struggled with weight gain and constant bloating for years. Rohan didn't just give me a diet — he explained why my body was reacting the way it was. Within 8 weeks, my digestion improved and I lost 6 kg without starving. For the first time, I feel in control of my health.",
+    name: "Ananya S.",
+    location: "Bengaluru, India",
+  },
+  {
+    quote:
+      "As an Indian living in the US, I struggled to balance traditional Indian food with fitness goals. Rohan created a plan that respected my culture while delivering real results. My gut health and energy improved significantly.",
+    name: "Ritika M.",
+    location: "San Jose, USA",
+  },
+  {
+    quote:
+      "I was dealing with bloating and stubborn weight gain after moving abroad. Rohan helped me rebuild structure using foods easily available here. The change has been life-changing.",
+    name: "Neha B.",
+    location: "New Jersey, USA",
+  },
+  {
+    quote:
+      "I had persistent gut issues and low energy. Rohan helped identify triggers and fix my routine. The improvement in digestion and focus has been significant.",
+    name: "Priyanka M.",
+    location: "Sydney, Australia",
+  },
+  {
+    quote:
+      "Long work hours and frequent business dinners had affected my weight and digestion. Rohan structured a plan that fit my schedule without drastic changes. I've lost fat steadily and feel more energetic during the day.",
+    name: "Arjun R.",
+    location: "Dubai, UAE",
+  },
+  {
+    quote:
+      "I had issues with acidity and late-night cravings. Rohan focused on meal timing and balance rather than restriction. The improvement in digestion and sleep has been noticeable.",
+    name: "Amit V.",
+    location: "Singapore",
+  },
+  {
+    quote:
+      "As an Indian professional in Dubai, it's easy to slip into irregular eating. Rohan helped me regain discipline using simple, available foods. My bloating reduced and my focus at work improved.",
+    name: "Kunal M.",
+    location: "Dubai, UAE",
+  },
+  {
+    quote:
+      "I wasn't interested in crash diets. Rohan's structured approach helped me reduce weight, especially around the waist, while improving gut health and consistency in my routine.",
+    name: "Siddharth P.",
+    location: "Dubai, UAE",
+  },
+  {
+    quote:
+      "As a working woman, I had no time for complicated diets. Rohan customized everything around my schedule. I lost inches, not just weight, and my cravings reduced naturally. No fancy supplements, just smart nutrition.",
+    name: "Neha R.",
+    location: "Mumbai, India",
+  },
+  {
+    quote:
+      "My issue wasn't just weight — it was fatigue and sugar cravings. Rohan identified nutrient gaps and fixed my routine step by step. I feel stronger, calmer, and my sleep has improved drastically.",
+    name: "Fatima N.",
+    location: "Abu Dhabi, UAE",
+  },
+  {
+    quote:
+      "Rohan understands Indian athletes abroad. He customized nutrition based on training intensity and food availability here. My endurance and muscle recovery improved significantly.",
+    name: "Neel P.",
+    location: "New Jersey, USA",
+    tag: "Strength training",
+  },
+  {
+    quote:
+      "I used to feel fatigued during workouts. Rohan fixed my meal timing and macros instead of pushing supplements. My stamina and workout performance improved within weeks.",
+    name: "Karthik S.",
+    location: "Chennai, India",
+    tag: "Recreational athlete",
+  },
+  {
+    quote:
+      "After moving to the US, my weight, blood sugar markers, and energy levels slowly worsened. Rohan didn't rush weight loss. He focused on fixing my metabolic health first — meal timing, food quality, and consistency. The weight loss followed naturally, and I feel healthier overall.",
+    name: "Vikram S.",
+    location: "Dallas, USA",
+  },
 ];
 ---
 
-<section class="mt-24 max-w-4xl mx-auto px-5">
-  <p class="text-xs font-medium tracking-widest uppercase text-brand-600 text-center">
-    Client stories
-  </p>
-  <div class="mt-6 grid gap-6">
-    {
-      testimonials.map((t) => (
-        <figure class="rounded-2xl bg-cream-50 border border-cream-300 p-8 md:p-12">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            class="w-8 h-8 text-brand-200">
-            <path d="M9.983 3v7.391C9.983 16.095 6.252 19.852 1 21l-.985-2.273c2.741-.737 5.043-3.197 5.043-5.527H1V3h8.983zM23 3v7.391c0 5.704-3.748 9.461-9 10.609l-.985-2.273c2.741-.737 5.043-3.197 5.043-5.527H14V3h9z" />
-          </svg>
-          <blockquote class="mt-6 font-serif text-2xl md:text-3xl text-ink-700 leading-snug">
-            "{t.quote}"
-          </blockquote>
-          <figcaption class="mt-6 text-sm text-ink-500">
-            <span class="font-medium text-ink-700">{t.name}</span>
-            <span class="text-ink-400"> — {t.location}</span>
-          </figcaption>
-        </figure>
-      ))
-    }
+<section class="mt-24 lg:mt-32" data-testimonial-section>
+  <div class="max-w-6xl mx-auto px-5">
+    <header class="text-center max-w-2xl mx-auto">
+      <p class="text-xs font-medium tracking-widest uppercase text-brand-600">
+        Notes from our community
+      </p>
+      <h2 class="mt-3 font-serif text-4xl lg:text-5xl font-semibold text-ink-900 tracking-tight">
+        Real results, real lives.
+      </h2>
+      <p class="mt-4 text-lg text-ink-500 leading-relaxed">
+        Stories from clients across India, the US, the UAE, Singapore, and beyond.
+      </p>
+    </header>
+  </div>
+
+  <div
+    class="mt-12 testimonial-rail relative"
+    role="region"
+    aria-label="Client testimonials"
+  >
+    <!-- Edge fade overlays so cards fade in/out at scroll edges -->
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-24 z-10 bg-gradient-to-r from-cream-100 to-transparent">
+    </div>
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-24 z-10 bg-gradient-to-l from-cream-100 to-transparent">
+    </div>
+
+    <div
+      class="testimonial-track flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory px-5 md:px-12 pb-6"
+      data-testimonial-track
+    >
+      {
+        testimonials.map((t) => (
+          <figure class="testimonial-card snap-start shrink-0 w-[88%] sm:w-[60%] md:w-[44%] lg:w-[32%] rounded-2xl bg-cream-50 border border-cream-300 p-7 md:p-8 flex flex-col">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-7 h-7 text-brand-200">
+              <path d="M9.983 3v7.391C9.983 16.095 6.252 19.852 1 21l-.985-2.273c2.741-.737 5.043-3.197 5.043-5.527H1V3h8.983zM23 3v7.391c0 5.704-3.748 9.461-9 10.609l-.985-2.273c2.741-.737 5.043-3.197 5.043-5.527H14V3h9z" />
+            </svg>
+            <blockquote class="mt-4 font-serif text-lg md:text-xl text-ink-700 leading-snug grow">
+              "{t.quote}"
+            </blockquote>
+            <figcaption class="mt-6 pt-4 border-t border-cream-300 text-sm">
+              <p class="font-medium text-ink-700">{t.name}</p>
+              <p class="text-ink-400">
+                {t.location}
+                {t.tag && <span class="text-brand-600"> · {t.tag}</span>}
+              </p>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <div class="flex justify-center gap-3 mt-4">
+      <button
+        type="button"
+        data-testimonial-prev
+        class="w-11 h-11 rounded-full border border-cream-300 bg-cream-50 hover:bg-brand-50 hover:border-brand-200 transition flex items-center justify-center text-ink-700"
+        aria-label="Previous testimonials">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        data-testimonial-next
+        class="w-11 h-11 rounded-full border border-cream-300 bg-cream-50 hover:bg-brand-50 hover:border-brand-200 transition flex items-center justify-center text-ink-700"
+        aria-label="Next testimonials">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      </button>
+    </div>
   </div>
 </section>
+
+<script>
+  // Carousel: autoscroll continuously, pause on user interaction, resume after 6s of idle.
+  // Manual scroll, drag, and arrow buttons all work.
+  const section = document.querySelector("[data-testimonial-section]") as HTMLElement | null;
+  const track = document.querySelector("[data-testimonial-track]") as HTMLElement | null;
+  const prevBtn = document.querySelector("[data-testimonial-prev]") as HTMLButtonElement | null;
+  const nextBtn = document.querySelector("[data-testimonial-next]") as HTMLButtonElement | null;
+
+  if (track && section) {
+    let isPaused = false;
+    let resumeTimer: ReturnType<typeof setTimeout> | null = null;
+    const PIXELS_PER_TICK = 0.5;
+    const TICK_MS = 16;
+
+    function pause(durationMs = 6000) {
+      isPaused = true;
+      if (resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => {
+        isPaused = false;
+      }, durationMs);
+    }
+
+    function tick() {
+      if (!track) return;
+      if (!isPaused) {
+        // If we've reached the end, jump back to start (seamless loop perception).
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        if (track.scrollLeft >= maxScroll - 1) {
+          track.scrollTo({ left: 0, behavior: "auto" });
+        } else {
+          track.scrollLeft += PIXELS_PER_TICK;
+        }
+      }
+    }
+
+    setInterval(tick, TICK_MS);
+
+    // Pause when hovered or focused.
+    section.addEventListener("mouseenter", () => pause(60_000));
+    section.addEventListener("mouseleave", () => pause(0));
+    section.addEventListener("focusin", () => pause(60_000));
+    section.addEventListener("focusout", () => pause(0));
+
+    // Pause briefly when user manually scrolls/drags.
+    track.addEventListener("scroll", () => pause(6_000), { passive: true });
+    track.addEventListener("touchstart", () => pause(8_000), { passive: true });
+    track.addEventListener("pointerdown", () => pause(8_000));
+
+    // Pause when tab is hidden — saves CPU on background tabs.
+    document.addEventListener("visibilitychange", () => {
+      isPaused = document.hidden ? true : isPaused;
+    });
+
+    function pageStep(direction: 1 | -1) {
+      if (!track) return;
+      const card = track.querySelector(".testimonial-card") as HTMLElement | null;
+      const cardWidth = card ? card.getBoundingClientRect().width + 20 : 320;
+      track.scrollBy({ left: direction * cardWidth, behavior: "smooth" });
+      pause(6_000);
+    }
+    prevBtn?.addEventListener("click", () => pageStep(-1));
+    nextBtn?.addEventListener("click", () => pageStep(1));
+  }
+</script>
+
+<style>
+  .testimonial-track {
+    scrollbar-width: none;
+  }
+  .testimonial-track::-webkit-scrollbar {
+    display: none;
+  }
+</style>

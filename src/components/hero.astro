@@ -1,9 +1,10 @@
 ---
 import Link from "@/components/ui/link.astro";
+import { Image } from "astro:assets";
+import rohanPortrait from "@/assets/rohan-portrait.png";
 ---
 
 <section class="relative overflow-hidden">
-  <!-- Soft organic gradient backdrop, no image dependency. -->
   <div
     aria-hidden="true"
     class="absolute inset-0 -z-10 bg-gradient-to-br from-cream-100 via-cream-50 to-brand-50">
@@ -17,60 +18,45 @@ import Link from "@/components/ui/link.astro";
     class="absolute -bottom-40 -left-32 w-[24rem] h-[24rem] rounded-full bg-accent-500/20 blur-3xl -z-10">
   </div>
 
-  <div class="grid lg:grid-cols-2 gap-12 items-center pt-16 pb-20 md:pt-24 md:pb-28">
-    <div class="max-w-xl">
+  <div class="grid lg:grid-cols-12 gap-12 items-center pt-12 pb-20 md:pt-20 md:pb-28">
+    <div class="lg:col-span-7 max-w-2xl">
       <span
         class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-medium tracking-wide uppercase">
         <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
         Evidence-based nutrition coaching
       </span>
       <h1
-        class="mt-5 font-serif text-5xl lg:text-6xl xl:text-7xl font-semibold text-ink-900 tracking-tight leading-[1.05]">
-        Elevate Your <span class="text-brand-600 italic">Well-Being</span>.
+        class="mt-5 font-serif text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-ink-900 tracking-tight leading-[1.02]">
+        Elevate your <em class="text-brand-600 font-normal italic">well-being</em>.
       </h1>
-      <p class="mt-6 text-lg lg:text-xl text-ink-500 leading-relaxed">
-        Empowering you to achieve optimal health through personalized nutrition
-        plans and lifestyle changes — modern nutrition science rooted in
-        Indian food and global lifestyles.
+      <p class="mt-6 text-lg lg:text-xl text-ink-500 leading-relaxed max-w-xl">
+        Empowering you to achieve optimal health through personalized
+        nutrition plans and lifestyle changes — modern nutrition science
+        rooted in Indian food and global lifestyles.
       </p>
       <div class="mt-8 flex flex-col sm:flex-row gap-3">
         <Link href="/book">Book a Consultation</Link>
         <Link href="/philosophy" style="outline">Learn More</Link>
       </div>
-      <p class="mt-6 text-sm text-ink-400">
-        Serving clients worldwide from Bengaluru — including the
-        <span class="text-ink-500 font-medium">USA, Dubai, and Singapore</span>.
-      </p>
     </div>
 
-    <div class="relative">
-      <!-- Decorative composition: soft cards layered like a quiet still life. -->
-      <div class="relative aspect-square max-w-md mx-auto">
+    <div class="lg:col-span-5">
+      <div class="relative max-w-md mx-auto lg:max-w-none">
         <div
-          class="absolute inset-0 rounded-3xl bg-brand-500/90 rotate-3 shadow-xl">
+          aria-hidden="true"
+          class="absolute -inset-4 bg-brand-500/10 rounded-3xl rotate-3 -z-10">
         </div>
-        <div
-          class="absolute inset-0 rounded-3xl bg-cream-50 -rotate-2 shadow-md flex flex-col p-8 justify-between">
-          <div>
-            <p class="text-xs font-medium tracking-widest uppercase text-brand-600">
-              A Note from Rohan
-            </p>
-            <p class="mt-4 font-serif text-2xl text-ink-700 leading-snug">
-              "Your diet is one of the most powerful tools you have. The plan
-              just needs to fit your life."
-            </p>
-          </div>
-          <div class="flex items-center gap-3">
-            <div
-              class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center font-serif text-brand-700 font-semibold">
-              R
-            </div>
-            <div>
-              <p class="text-sm font-medium text-ink-700">Rohan</p>
-              <p class="text-xs text-ink-400">Certified Nutrition Coach</p>
-            </div>
-          </div>
-        </div>
+        <Image
+          src={rohanPortrait}
+          alt="Rohan, certified nutrition coach"
+          widths={[480, 640, 800, 1024]}
+          sizes="(max-width: 1024px) 90vw, 480px"
+          loading="eager"
+          fetchpriority="high"
+          format="avif"
+          quality={82}
+          class="relative w-full h-auto rounded-2xl shadow-xl object-cover"
+        />
       </div>
     </div>
   </div>

@@ -1,0 +1,31 @@
+---
+const locations = [
+  "India",
+  "USA",
+  "UAE",
+  "Singapore",
+  "Australia",
+];
+---
+
+<section class="border-y border-cream-300 bg-cream-50/60 py-6 mt-2">
+  <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-sm text-ink-500">
+    <p class="font-medium text-ink-700 tracking-wide">
+      Trusted by clients across
+    </p>
+    <ul class="flex flex-wrap items-center justify-center gap-x-5 md:gap-x-7 gap-y-2">
+      {
+        locations.map((loc, i) => (
+          <li class="flex items-center gap-5 md:gap-7">
+            <span class="font-serif text-base md:text-lg text-ink-700 tracking-wide">
+              {loc}
+            </span>
+            {i < locations.length - 1 && (
+              <span aria-hidden="true" class="hidden md:inline w-1 h-1 rounded-full bg-ink-300" />
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
