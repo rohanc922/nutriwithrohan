@@ -1,6 +1,7 @@
 ---
 import Container from "@/components/container.astro";
 import Link from "@/components/ui/link.astro";
+import BrandMark from "@/components/brandmark.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems = [
@@ -31,9 +32,7 @@ const menuitems = [
               <path d="M2 21c0-3 1.85-5.36 5.08-6" />
             </svg>
           </span>
-          <span class="font-serif font-semibold text-brand-700">Nutri</span><span
-            class="font-serif text-ink-500">withRohan</span
-          >
+          <BrandMark size="lg" />
         </a>
         <div class="block lg:hidden">
           <MenuIcon class="w-5 h-5 text-ink-700" />

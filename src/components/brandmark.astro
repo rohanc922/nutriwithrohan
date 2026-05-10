@@ -1,0 +1,22 @@
+---
+// Renders the brand name with consistent styling: "Nutri" and "Rohan" in
+// brand green, "with " connecting them in muted ink. No space before "with".
+// Single-line markup so adjacent-text whitespace can't sneak in.
+//
+// Usage: <BrandMark /> in any flow text where the brand name appears.
+//
+// Props:
+//   - size: 'inherit' (default) keeps current text size; 'lg' renders large for hero
+//   - tone: 'default' uses brand green; 'inverted' uses cream for dark backgrounds
+interface Props {
+  size?: "inherit" | "lg";
+  tone?: "default" | "inverted";
+  class?: string;
+}
+const { size = "inherit", tone = "default", class: className } = Astro.props;
+const accent = tone === "inverted" ? "text-cream-50" : "text-brand-700";
+const muted = tone === "inverted" ? "text-cream-200" : "text-ink-500";
+const sizeClass = size === "lg" ? "text-lg" : "";
+---
+
+<span class:list={["font-serif whitespace-nowrap", sizeClass, className]}><span class={`font-semibold ${accent}`}>Nutri </span><span class={muted}>with</span><span class={`font-semibold ${accent}`}>Rohan</span></span>

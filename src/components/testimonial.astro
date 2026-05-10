@@ -91,7 +91,20 @@ const testimonials = [
 ];
 ---
 
-<section class="mt-24 lg:mt-32" data-testimonial-section>
+<section
+  class="testimonial-section relative mt-24 lg:mt-32 py-16 md:py-20 bg-cream-100"
+  data-testimonial-section>
+  <!-- Soft top/bottom shadows that visually merge the section with adjacent content
+       while still keeping a clean solid backdrop for the cards. -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-cream-300 to-transparent">
+  </div>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-cream-300 to-transparent">
+  </div>
+
   <div class="max-w-6xl mx-auto px-5">
     <header class="text-center max-w-2xl mx-auto">
       <p class="text-xs font-medium tracking-widest uppercase text-brand-600">
