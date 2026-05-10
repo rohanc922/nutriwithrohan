@@ -1,0 +1,76 @@
+---
+import Contactform from "@/components/contactform.astro";
+import Container from "@/components/container.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout
+  title="Contact"
+  description="Get in touch with NutriwithRohan. Email or use the form for questions about programmes, plans, or fit."
+>
+  <Container>
+    <header class="max-w-2xl mx-auto text-center mt-12 lg:mt-20">
+      <p class="text-xs font-medium tracking-widest uppercase text-brand-600">
+        Contact
+      </p>
+      <h1
+        class="mt-4 font-serif text-5xl lg:text-6xl font-semibold text-ink-900 tracking-tight">
+        Let's talk.
+      </h1>
+      <p class="mt-5 text-lg text-ink-500 leading-relaxed">
+        Questions about programmes, fit, or which plan is right for you?
+        Drop a note and we'll get back within a day.
+      </p>
+    </header>
+
+    <div class="grid md:grid-cols-5 gap-12 max-w-5xl mx-auto mt-16">
+      <div class="md:col-span-2">
+        <h2 class="font-serif text-2xl font-semibold text-ink-900">
+          How to reach us
+        </h2>
+        <ul class="mt-5 space-y-3 text-ink-500">
+          <li class="flex items-start gap-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mt-0.5 text-brand-500">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            <a href="mailto:rohanc922@gmail.com" class="hover:text-brand-600">
+              rohanc922@gmail.com
+            </a>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5 mt-0.5 text-brand-500">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+              <line x1="16" x2="16" y1="2" y2="6"></line>
+              <line x1="8" x2="8" y1="2" y2="6"></line>
+              <line x1="3" x2="21" y1="10" y2="10"></line>
+            </svg>
+            <a href="/book" class="hover:text-brand-600">
+              Book a consultation directly
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-3">
+        <Contactform />
+      </div>
+    </div>
+  </Container>
+</Layout>

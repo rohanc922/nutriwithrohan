@@ -1,0 +1,61 @@
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/typography';
+
+@theme {
+  /* Wellness palette — calm deep green primary, warm off-white background, muted gold accent */
+  --color-brand-50: #F2F7F3;
+  --color-brand-100: #DDEAE0;
+  --color-brand-200: #B7D2BE;
+  --color-brand-300: #8FB69A;
+  --color-brand-400: #6B9379;
+  --color-brand-500: #3F6B4F;
+  --color-brand-600: #335A41;
+  --color-brand-700: #2A4A36;
+  --color-brand-800: #1F3728;
+  --color-brand-900: #14241B;
+
+  --color-accent-500: #C8A964;
+  --color-accent-600: #B0904E;
+
+  --color-cream-50: #FDFCF9;
+  --color-cream-100: #FAF7F2;
+  --color-cream-200: #F2EDE4;
+  --color-cream-300: #E8E0D2;
+
+  --color-ink-900: #111827;
+  --color-ink-700: #1F2937;
+  --color-ink-500: #4B5563;
+  --color-ink-400: #6B7280;
+  --color-ink-300: #9CA3AF;
+
+  --font-sans:
+    'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif:
+    'Fraunces Variable', Fraunces, ui-serif, Georgia, Cambria, 'Times New Roman',
+    Times, serif;
+}
+
+/* Body baseline — soft cream background, warm ink text */
+html {
+  background-color: var(--color-cream-100);
+  color: var(--color-ink-700);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Default border color compatibility for Tailwind v4 (matches v3 behavior) */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-cream-300, currentColor);
+  }
+}

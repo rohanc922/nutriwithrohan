@@ -1,0 +1,91 @@
+---
+import Link from "@/components/ui/link.astro";
+
+const { plan } = Astro.props;
+---
+
+<div
+  class:list={[
+    "flex flex-col h-full rounded-2xl p-7 transition",
+    plan.popular
+      ? "bg-brand-700 text-cream-50 shadow-xl ring-2 ring-brand-500"
+      : "bg-cream-50 text-ink-700 border border-cream-300 hover:border-brand-200",
+  ]}>
+  {
+    plan.popular && (
+      <span class="self-start mb-3 px-3 py-1 rounded-full bg-accent-500 text-ink-900 text-[10px] font-semibold tracking-widest uppercase">
+        Most Popular
+      </span>
+    )
+  }
+  <h3 class="font-serif text-2xl font-semibold">
+    {plan.name}
+  </h3>
+  <p
+    class:list={[
+      "mt-1 text-sm",
+      plan.popular ? "text-cream-200/80" : "text-ink-500",
+    ]}>
+    {plan.tagline}
+  </p>
+
+  <div class="mt-5 flex items-baseline gap-1">
+    <span class="font-serif text-5xl font-semibold">
+      ₹{plan.price.toLocaleString("en-IN")}
+    </span>
+  </div>
+  <p
+    class:list={[
+      "text-xs mt-1",
+      plan.popular ? "text-cream-200/70" : "text-ink-400",
+    ]}>
+    Valid for {plan.duration}
+  </p>
+
+  {
+    plan.bestFor && (
+      <p
+        class:list={[
+          "mt-4 text-sm leading-relaxed",
+          plan.popular ? "text-cream-200/80" : "text-ink-500",
+        ]}>
+        <span class="font-medium">Best for:</span> {plan.bestFor}
+      </p>
+    )
+  }
+
+  <ul class="mt-6 space-y-3 grow">
+    {
+      plan.features.map((f: string) => (
+        <li class="flex items-start gap-3 text-sm">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class:list={[
+              "w-5 h-5 shrink-0 mt-0.5",
+              plan.popular ? "text-accent-500" : "text-brand-500",
+            ]}>
+            <path d="M20 6L9 17l-5-5" />
+          </svg>
+          <span class={plan.popular ? "text-cream-200" : "text-ink-700"}>
+            {f}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="mt-7">
+    <Link
+      href="/book"
+      block
+      style={plan.popular ? "inverted" : "primary"}>
+      Get started
+    </Link>
+  </div>
+</div>

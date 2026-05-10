@@ -1,0 +1,95 @@
+---
+import { SEO } from "astro-seo";
+import Footer from "@/components/footer.astro";
+import Navbar from "@/components/navbar/navbar.astro";
+import "@fontsource-variable/inter/index.css";
+import "@fontsource-variable/fraunces/index.css";
+import "../styles/global.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const { title, description } = Astro.props;
+
+const siteName = "NutriwithRohan";
+const defaultDescription =
+  "Personalized nutrition coaching by Rohan. Evidence-based plans for weight management, gut health, metabolic wellness, and sports nutrition.";
+
+const makeTitle = title
+  ? `${title} | ${siteName}`
+  : `${siteName} — Personalized Nutrition & Wellness Coaching`;
+
+// Schema.org LocalBusiness markup helps search engines surface the practice.
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  name: "NutriwithRohan",
+  description: defaultDescription,
+  url: "https://nutriwithrohan.com",
+  email: "rohanc922@gmail.com",
+  priceRange: "₹₹",
+  areaServed: "Worldwide",
+  serviceType: [
+    "Nutrition consulting",
+    "Weight management",
+    "Gut health",
+    "Metabolic health",
+    "Sports nutrition",
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#3F6B4F" />
+
+    <SEO
+      title={makeTitle}
+      description={description ?? defaultDescription}
+      canonical={canonicalURL}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: makeTitle,
+          image: new URL("/opengraph.jpg", Astro.site).toString(),
+        },
+        image: {
+          alt: "NutriwithRohan — Personalized Nutrition & Wellness Coaching",
+        },
+      }}
+    />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(localBusinessSchema)}
+    />
+  </head>
+  <body class="bg-cream-100 text-ink-700">
+    <Navbar />
+    <slot />
+    <Footer />
+    <style is:global>
+      img {
+        content-visibility: auto;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: var(--font-serif);
+        letter-spacing: -0.01em;
+      }
+    </style>
+  </body>
+</html>

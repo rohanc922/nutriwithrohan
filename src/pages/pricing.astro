@@ -1,0 +1,134 @@
+---
+import Container from "@/components/container.astro";
+import Layout from "@/layouts/Layout.astro";
+import PricingCard from "@/components/pricing.astro";
+
+// Source: ported from nutriwithrohan.com/pricing-and-plans on 2026-05-10.
+const programmes = [
+  {
+    name: "Gut Health",
+    price: 55000,
+    duration: "3 months",
+    tagline:
+      "The enteric nervous system is often called the body's 'second brain'. Bloating, IBS, and irregular digestion can lead to chronic issues.",
+    bestFor: "Bloating, IBS, irregular digestion, food sensitivities",
+    popular: false,
+    features: [
+      "Gut-replenishing foods",
+      "Gastrointestinal-friendly diet",
+      "Gut-strengthening protocol",
+      "Anti-inflammatory meal plans",
+      "Elimination of inflammatory foods",
+      "Travel-ready diet templates",
+    ],
+  },
+  {
+    name: "Lifestyle & Metabolic Health",
+    price: 65000,
+    duration: "3 months",
+    tagline:
+      "Holistic programme focused on gut health, insulin sensitivity, energy levels, and daily performance.",
+    bestFor:
+      "Fatigue, poor digestion, long-term health improvement",
+    popular: true,
+    features: [
+      "Metabolic reset approach",
+      "Gut health optimisation",
+      "Energy and fatigue management",
+      "Blood-sugar stability",
+      "Habit-based nutrition framework",
+      "Stress and lifestyle alignment",
+      "Progress and plan refinement",
+    ],
+  },
+  {
+    name: "Weight & Fat Loss",
+    price: 75000,
+    duration: "3 months",
+    tagline:
+      "Comprehensive plan for weight loss, lean muscle, and fat loss — tailored to your unique needs and lifestyle.",
+    bestFor: "Weight loss, body recomposition, lean muscle gain",
+    popular: false,
+    features: [
+      "20 personalised recipes",
+      "Full meal-prep plan",
+      "Structured diet",
+      "Body-fat analysis",
+      "Macronutrient planning",
+      "Time-restricted eating",
+      "Lean-muscle building protocol",
+    ],
+  },
+  {
+    name: "Sports Nutrition",
+    price: 85000,
+    duration: "3 months",
+    tagline:
+      "Performance-tuned nutrition for athletes — reduce fatigue, lower injury risk, enable peak performance.",
+    bestFor: "Athletes, endurance training, performance goals",
+    popular: false,
+    features: [
+      "Metabolic structured nutrition",
+      "Sports performance nutrition",
+      "Carbohydrate strategy for energy",
+      "Protein for muscle and performance",
+      "Inflammation reduction",
+      "Joint and mobility nutrition",
+      "Endurance nutrition protocols",
+      "Pre-event meal planning",
+      "Supplements for performance",
+    ],
+  },
+  {
+    name: "Global Nutrition",
+    price: 150000,
+    duration: "3 months",
+    tagline:
+      "Designed for clients living outside India — Indian and international foods integrated seamlessly.",
+    bestFor: "Clients abroad, frequent travelers, dual-cuisine households",
+    popular: false,
+    features: [
+      "Country-specific meal planning",
+      "Indian + international food integration",
+      "Flexible lifestyle structure",
+      "Dining-out and travel guidance",
+      "Personalised macros and portion control",
+      "Online global support",
+      "Regular progress tracking",
+    ],
+  },
+];
+---
+
+<Layout
+  title="Pricing & Plans"
+  description="Choose the nutrition programme that fits your goals — gut health, weight management, metabolic wellness, sports nutrition, or globally-adapted plans."
+>
+  <Container>
+    <header class="max-w-2xl mx-auto text-center mt-12 lg:mt-20">
+      <p class="text-xs font-medium tracking-widest uppercase text-brand-600">
+        Pricing & Plans
+      </p>
+      <h1
+        class="mt-4 font-serif text-5xl lg:text-6xl font-semibold text-ink-900 tracking-tight">
+        Nourish your body, feel amazing.
+      </h1>
+      <p class="mt-5 text-lg text-ink-500 leading-relaxed">
+        Choose the plan that fits your goals. Every programme starts with a
+        deep assessment and is iterated with you over the three months.
+      </p>
+    </header>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-6xl mx-auto">
+      {programmes.map((p) => <PricingCard plan={p} />)}
+    </div>
+
+    <p class="mt-12 text-center text-sm text-ink-400">
+      Not sure which plan? <a
+        href="/book"
+        class="text-brand-600 hover:text-brand-700 underline-offset-4 hover:underline"
+        >Book a free 15-minute discovery call</a
+      > and we'll figure it out together.
+    </p>
+  </Container>
+</Layout>

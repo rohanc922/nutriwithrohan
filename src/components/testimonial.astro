@@ -1,0 +1,38 @@
+---
+const testimonials = [
+  {
+    quote:
+      "My gut health had been affected by stress and irregular meals. Rohan's plan was flexible yet effective. The improvement in digestion came quickly.",
+    name: "Kavya N.",
+    location: "Singapore",
+  },
+];
+---
+
+<section class="mt-24 max-w-4xl mx-auto px-5">
+  <p class="text-xs font-medium tracking-widest uppercase text-brand-600 text-center">
+    Client stories
+  </p>
+  <div class="mt-6 grid gap-6">
+    {
+      testimonials.map((t) => (
+        <figure class="rounded-2xl bg-cream-50 border border-cream-300 p-8 md:p-12">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-8 h-8 text-brand-200">
+            <path d="M9.983 3v7.391C9.983 16.095 6.252 19.852 1 21l-.985-2.273c2.741-.737 5.043-3.197 5.043-5.527H1V3h8.983zM23 3v7.391c0 5.704-3.748 9.461-9 10.609l-.985-2.273c2.741-.737 5.043-3.197 5.043-5.527H14V3h9z" />
+          </svg>
+          <blockquote class="mt-6 font-serif text-2xl md:text-3xl text-ink-700 leading-snug">
+            "{t.quote}"
+          </blockquote>
+          <figcaption class="mt-6 text-sm text-ink-500">
+            <span class="font-medium text-ink-700">{t.name}</span>
+            <span class="text-ink-400"> — {t.location}</span>
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+</section>

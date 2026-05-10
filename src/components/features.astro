@@ -1,0 +1,83 @@
+---
+const services = [
+  {
+    title: "Lifestyle & Metabolic Health",
+    description:
+      "Holistic programme for gut health, insulin sensitivity, energy and daily performance. Best for fatigue, poor digestion, and long-term wellness.",
+    icon: "M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96a1 1 0 0 1 1.5.66c1 6.07-1.18 13.07-7.31 14.78A7 7 0 0 1 11 20Z",
+    iconExtra: "M2 21c0-3 1.85-5.36 5.08-6",
+  },
+  {
+    title: "Weight & Fat Loss",
+    description:
+      "Comprehensive plan combining structured diet, fat analysis, time-restricted eating, and lean muscle building — calibrated to your lifestyle.",
+    icon: "M3 6l3 16m12-16l-3 16M5.5 6h13M7 14h10",
+  },
+  {
+    title: "Global Nutrition",
+    description:
+      "Designed for clients living outside India. Indian and international food integrated seamlessly, with travel and dining-out guidance.",
+    icon: "M2 12a10 10 0 1 0 20 0 10 10 0 1 0 -20 0M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1 -4 10 15 15 0 0 1 -4 -10 15 15 0 0 1 4 -10z",
+  },
+  {
+    title: "Sports Nutrition",
+    description:
+      "Performance-tuned plans for athletes — fueling for endurance, recovery, joint mobility, pre-event meals, and supplementation strategy.",
+    icon: "M6.5 6.5L17.5 17.5M17.5 6.5L6.5 17.5M12 2v4M12 18v4M2 12h4M18 12h4",
+  },
+  {
+    title: "Gut Health",
+    description:
+      "Anti-inflammatory meal plans, gut-replenishing foods, and elimination protocols for IBS, bloating, and chronic digestive issues.",
+    icon: "M12 2a8 8 0 0 0 -8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0 -8 -8zM12 6a4 4 0 0 1 4 4",
+  },
+  {
+    title: "Personalized Coaching",
+    description:
+      "Every plan starts with a deep assessment of your health, history, food preferences, and constraints — then iterates with you over time.",
+    icon: "M16 21v-2a4 4 0 0 0 -4 -4H6a4 4 0 0 0 -4 4v2M9 11a4 4 0 1 0 0 -8 4 4 0 0 0 0 8zM22 11h-6M19 8v6",
+  },
+];
+---
+
+<section id="services" class="mt-12 lg:mt-24 max-w-6xl mx-auto">
+  <div class="max-w-2xl">
+    <p class="text-xs font-medium tracking-widest uppercase text-brand-600">
+      What we do
+    </p>
+    <h2 class="mt-3 font-serif text-4xl lg:text-5xl font-semibold text-ink-900 tracking-tight">
+      Discovering the journey to wellness, with you.
+    </h2>
+    <p class="mt-5 text-lg text-ink-500 leading-relaxed">
+      Programmes rooted in evidence, tailored to your body and your routine.
+      Choose what fits, or talk to Rohan about a custom plan.
+    </p>
+  </div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+    {
+      services.map((s) => (
+        <article class="group p-6 rounded-2xl bg-cream-50 border border-cream-300 hover:border-brand-200 hover:shadow-md transition">
+          <div class="w-11 h-11 rounded-full bg-brand-50 flex items-center justify-center text-brand-600 group-hover:bg-brand-500 group-hover:text-cream-50 transition">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5">
+              <path d={s.icon} />
+              {s.iconExtra && <path d={s.iconExtra} />}
+            </svg>
+          </div>
+          <h3 class="mt-5 font-serif text-xl font-semibold text-ink-900">
+            {s.title}
+          </h3>
+          <p class="mt-2 text-ink-500 leading-relaxed">{s.description}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>
