@@ -2,14 +2,33 @@
 import Container from "@/components/container.astro";
 import Layout from "@/layouts/Layout.astro";
 
-// TODO: replace with the user's actual Calendly username after Calendly setup.
+// TODO: replace with the user's actual Calendly event URL after Calendly setup.
 // e.g. "rohanc922" -> https://calendly.com/rohanc922/30min
 const calendlyUrl = "https://calendly.com/rohanc922";
+
+const services = [
+  {
+    name: "Meal Planning",
+    duration: "30 min",
+    format: "Online meet-up",
+    price: "Discovery call",
+    description:
+      "Customized meal plans tailored to your needs. Our Meal Planning service offers personalized meal plans designed around your health goals, dietary preferences, and lifestyle. Combining Indian nutrition with modern scientific principles, every plan is balanced, nutritious, and enjoyable.",
+  },
+  {
+    name: "Nutrition Consultation",
+    duration: "1 hour",
+    format: "Online meet-up",
+    price: "₹1,000",
+    description:
+      "Personalized nutrition plan for your health goals. We blend global nutrition science with Indian culinary traditions to offer tailored nutrition plans for Indians worldwide. Evidence-based, lifestyle-aware, and built around the flavors of authentic Indian cuisine.",
+  },
+];
 ---
 
 <Layout
   title="Book Online"
-  description="Schedule a nutrition consultation with Rohan. Pick a time that works for you."
+  description="Schedule a nutrition consultation or meal-planning discovery call with Rohan. Online sessions, available worldwide."
 >
   <Container>
     <header class="max-w-2xl mx-auto text-center mt-12 lg:mt-20">
@@ -26,11 +45,31 @@ const calendlyUrl = "https://calendly.com/rohanc922";
       </p>
     </header>
 
+    <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto mt-12">
+      {
+        services.map((s) => (
+          <div class="rounded-2xl bg-cream-50 border border-cream-300 p-7 flex flex-col">
+            <div class="flex items-baseline justify-between gap-3">
+              <h2 class="font-serif text-2xl font-semibold text-ink-900">
+                {s.name}
+              </h2>
+              <span class="text-sm font-medium text-brand-600">{s.price}</span>
+            </div>
+            <p class="mt-1 text-sm text-ink-400">
+              {s.duration} · {s.format}
+            </p>
+            <p class="mt-4 text-ink-500 leading-relaxed grow">{s.description}</p>
+          </div>
+        ))
+      }
+    </div>
+
     <div class="mt-12 max-w-4xl mx-auto rounded-2xl bg-cream-50 border border-cream-300 overflow-hidden">
       <!--
         Calendly inline embed.
-        Update `calendlyUrl` above with your actual event URL once you've
-        created an event type in Calendly (e.g. "30-min Nutrition Discovery Call").
+        After creating an event type in Calendly (e.g. "30-min Discovery"
+        or "1-hr Nutrition Consultation"), update `calendlyUrl` above to
+        link directly to that event for the cleanest UX.
       -->
       <iframe
         src={calendlyUrl}
@@ -43,11 +82,17 @@ const calendlyUrl = "https://calendly.com/rohanc922";
     </div>
 
     <p class="mt-10 text-center text-sm text-ink-400">
-      Prefer email? <a
+      Prefer to talk first? Email
+      <a
         href="mailto:rohanc922@gmail.com"
         class="text-brand-600 hover:text-brand-700 underline-offset-4 hover:underline"
         >rohanc922@gmail.com</a
-      >
+      > or call
+      <a
+        href="tel:+918088867097"
+        class="text-brand-600 hover:text-brand-700 underline-offset-4 hover:underline"
+        >+91 80888 67097</a
+      >.
     </p>
   </Container>
 </Layout>

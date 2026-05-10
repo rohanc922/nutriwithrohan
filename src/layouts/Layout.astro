@@ -17,7 +17,7 @@ const { title, description } = Astro.props;
 
 const siteName = "NutriwithRohan";
 const defaultDescription =
-  "Personalized nutrition coaching by Rohan. Evidence-based plans for weight management, gut health, metabolic wellness, and sports nutrition.";
+  "Modern nutrition plans rooted in Indian food and global lifestyles. Personalized coaching by Rohan for weight management, gut health, metabolic wellness, and sports nutrition. Serving clients worldwide from Bengaluru — including USA, Dubai, and Singapore.";
 
 const makeTitle = title
   ? `${title} | ${siteName}`
@@ -31,14 +31,22 @@ const localBusinessSchema = {
   description: defaultDescription,
   url: "https://nutriwithrohan.com",
   email: "rohanc922@gmail.com",
+  telephone: "+91-80888-67097",
   priceRange: "₹₹",
-  areaServed: "Worldwide",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bengaluru",
+    addressRegion: "Karnataka",
+    addressCountry: "IN",
+  },
+  areaServed: ["Worldwide", "India", "United States", "United Arab Emirates", "Singapore"],
   serviceType: [
     "Nutrition consulting",
     "Weight management",
     "Gut health",
     "Metabolic health",
     "Sports nutrition",
+    "Meal planning",
   ],
 };
 ---
